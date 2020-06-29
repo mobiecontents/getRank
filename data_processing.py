@@ -10,7 +10,7 @@ import pandas as pd
 # In[2]:
 
 
-data=pd.read_csv('./data.csv')
+data=pd.read_csv('./datas/data.csv')
 
 
 # In[3]:
@@ -24,7 +24,7 @@ del data['타임스탬프']
 
 asd=[]
 they=[]
-with open('./form.txt','r') as fp: 
+with open('./datas/form.txt','r') as fp: 
     asd=fp.read().split('\n')
     
 for i in  range(len(data)):
@@ -211,25 +211,43 @@ print('INTJ:',getRank(INTJ))
 # In[12]:
 
 
-retrun_json={
-'ISTJ':getRank(ISTJ),
-'ISFJ':getRank(ISFJ),
-'INFJ':getRank(INFJ),
-'ISTP':getRank(ISTP),
-'ISFP':getRank(ISFP),
-'INFP':getRank(INFP),
-'INTP':getRank(INTP),
-'ESTP':getRank(ESTP),
-'ESFP':getRank(ESFP),
-'ENFP':getRank(ENFP),
-'ENTP':getRank(ENTP),
-'ESTJ':getRank(ESTJ),
-'ESFJ':getRank(ESFJ),
-'ENFJ':getRank(ENFJ),
-'ENTJ':getRank(ENTJ),
-'INTJ':getRank(INTJ),
-}
+# retrun_json={
+# 'ISTJ':getRank(ISTJ),
+# 'ISFJ':getRank(ISFJ),
+# 'INFJ':getRank(INFJ),
+# 'ISTP':getRank(ISTP),
+# 'ISFP':getRank(ISFP),
+# 'INFP':getRank(INFP),
+# 'INTP':getRank(INTP),
+# 'ESTP':getRank(ESTP),
+# 'ESFP':getRank(ESFP),
+# 'ENFP':getRank(ENFP),
+# 'ENTP':getRank(ENTP),
+# 'ESTJ':getRank(ESTJ),
+# 'ESFJ':getRank(ESFJ),
+# 'ENFJ':getRank(ENFJ),
+# 'ENTJ':getRank(ENTJ),
+# 'INTJ':getRank(INTJ),
+# }
 
+retrun_json={
+    'ISTJ':ISTJ,
+    'ISFJ':ISFJ,
+    'INFJ':INFJ,
+    'ISTP':ISTP,
+    'ISFP':ISFP,
+    'INFP':INFP,
+    'INTP':INTP,
+    'ESTP':ESTP,
+    'ESFP':ESFP,
+    'ENFP':ENFP,
+    'ENTP':ENTP,
+    'ESTJ':ESTJ,
+    'ESFJ':ESFJ,
+    'ENFJ':ENFJ,
+    'ENTJ':ENTJ,
+    'INTJ':INTJ,
+    }
 
 # In[13]:
 
@@ -240,7 +258,7 @@ import json
 # In[14]:
 
 
-with open('processing.json','w') as fp:
+with open('./datas/processing.json','w') as fp:
     json.dump(retrun_json, fp)
 
 

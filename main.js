@@ -1,21 +1,26 @@
 
-let processing=require('./processing.json')
+let processing=require('./datas/processing.json')
 const getRank=([name,importance,time,success])=>{
     //0==time,1==importance,2==succes
  
     //get User MBTI and input MBTI in mbti
-    const mbti='ENFP'
-
-    for(let value of processing[mbti]['0']['1']){
-        if (value==0){time*=4}
-        if (value==1){importance*=4}
-        if (value==2){success*=4}
+    const mbti='ENTJ'
+    console.log(processing[mbti])
+    for(let value of processing[mbti][0]){
+        if (value==0){time*=2}
+        if (value==1){importance*=2}
+        if (value==2){success*=2}
         }
-        for(let value of processing[mbti]['1']['2']){
-            if (value==0){time*=2}
-            if (value==1){importance*=2}
-            if (value==2){success*=2}
+        for(let value of processing[mbti][1]){
+            if (value==0){time*=1.5}
+            if (value==1){importance*=1.5}
+            if (value==2){success*=1.5}
             }
+            // for(let value of processing[mbti][2]){
+            //     if (value==0){time*=2}
+            //     if (value==1){importance*=2}
+            //     if (value==2){success*=2}
+            //     }
     console.log(importance+time+success)
 
     return importance+time+success
@@ -32,12 +37,17 @@ const Retrun1stList=(list)=>{
             big_score=score
         }
     }
+    console.log(list[biggest_index][0])
     return biggest_index
+
+
+
+
 
 }
 
 
-console.log(Retrun1stList([['계획 이름',4,4,2],['계획 이름',4,3,2],['계획 이름',2,4,2],['계획 이름',4,5,5]]))
+console.log(Retrun1stList([['계획 이름',5,3,3],['계획 이름',3,3,5],['계획 이름',3,5,3],['계획 이름',3,3,3]]))
 
 
 
@@ -61,6 +71,7 @@ console.log(Retrun1stList([['계획 이름',4,4,2],['계획 이름',4,3,2],['계
 
 
 
+    
 
 
 
