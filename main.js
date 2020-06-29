@@ -1,11 +1,12 @@
 
 let processing=require('./datas/processing.json')
+//각각의 별점에 따라 점수를 반환 하는 함수
 const getRank=([name,importance,time,success])=>{
     //0==time,1==importance,2==succes
  
     //get User MBTI and input MBTI in mbti
     const mbti='ENTJ'
-    console.log(processing[mbti])
+    
     for(let value of processing[mbti][0]){
         if (value==0){time*=2}
         if (value==1){importance*=2}
@@ -26,6 +27,7 @@ const getRank=([name,importance,time,success])=>{
     return importance+time+success
 }
 
+//getRank함수를 이용하여 모든 리스트의 값을 비교하여 제일 높은 함수를 리턴하는 함수
 const Retrun1stList=(list)=>{
     let biggest_index=0
     let big_score=0
@@ -38,6 +40,8 @@ const Retrun1stList=(list)=>{
         }
     }
     console.log(list[biggest_index][0])
+
+
     return biggest_index
 
 
